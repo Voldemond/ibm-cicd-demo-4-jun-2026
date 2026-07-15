@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-node-demo
+  labels:
+    app: simple-node-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-node-demo
+  template:
+    metadata:
+      labels:
+        app: simple-node-demo
+    spec:
+      containers:
+        - name: simple-node-demo
+          # Replace with your actual DockerHub username before first apply.
+          image: YOUR_DOCKERHUB_USERNAME/simple-node-demo:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: APP_VERSION
+              value: "1.0.0"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 5
