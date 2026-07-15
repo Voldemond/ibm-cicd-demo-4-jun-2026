@@ -14,8 +14,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds')
-        IMAGE_NAME            = "YOUR_DOCKERHUB_USERNAME/simple-node-demo"
+        DOCKERHUB_CREDENTIALS = credentials('Dockerhub_creds')
+        IMAGE_NAME            = "voldemond133/ibm-cicd-demo"
         IMAGE_TAG              = "${env.BUILD_NUMBER}"
     }
 
@@ -23,7 +23,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/YOUR_GITHUB_USERNAME/simple-node-cicd-demo.git'
+                git branch: 'main', url: 'https://github.com/Voldemond/ibm-cicd-demo-4-jun-2026.git'
             }
         }
 
