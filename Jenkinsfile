@@ -14,7 +14,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_CREDENTIALS = credentials('Dockerhub_creds')
+        DOCKERHUB_CREDENTIALS = credentials('Dockerhub_creds2')
         IMAGE_NAME            = "voldemond133/ibm-cicd-demo"
         IMAGE_TAG              = "${env.BUILD_NUMBER}"
     }
